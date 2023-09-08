@@ -10,8 +10,7 @@ export class LogService extends LogServiceBase {
     super(prisma);
   }
 
-  // @ts-ignore
-  async create(to: string, body: string, subject: string) {
+  async mail(to: string, body: string, subject: string) {
     const ses = new SES({
       region: process.env.AWS_DEFAULT_REGION as string,
       credentials: {

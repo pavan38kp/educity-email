@@ -12,9 +12,9 @@ export class LogController extends LogControllerBase {
 
   @common.Post('send-email')
   async sendEmail(
-    @common.Body() paylaod: {to: string, body: string, subject: string}
+    @common.Body() payload: { to: string; body: string; subject: string }
   ) {
-      return this.service.create(paylaod.to, paylaod.body, paylaod.subject)
+    return this.service.mail(payload.to, payload.body, payload.subject);
   }
 
 }
