@@ -9,4 +9,12 @@ export class LogController extends LogControllerBase {
   constructor(protected readonly service: LogService) {
     super(service);
   }
+
+  @common.Post('send-email')
+  async sendEmail(
+    @common.Body() paylaod: {to: string, body: string, subject: string}
+  ) {
+      return this.service.create(paylaod.to, paylaod.body, paylaod.subject)
+  }
+
 }
